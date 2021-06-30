@@ -72,4 +72,11 @@ public class Restaurant {
     }
 
 
+    public int calculateAndReturnOrderValue(List<Item> list) {
+        int orderValue = 0;
+        for (Item item :list){
+            orderValue = orderValue + item.getPrice();
+        }
+        return orderValue;
+    }
 }
