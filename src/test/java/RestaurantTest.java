@@ -61,5 +61,20 @@ class RestaurantTest {
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+    //<<<<<<<<<<<<<<<<<<test case for the new functionality>>>>>>>>>>>>>>>>>>>>
+    @Test
+    public void should_return_the_total_value_when_all_the_items_are_selected(){
 
+        assertEquals(388,restaurant.calculateAndReturnOrderValue(restaurant.getMenu()));
+
+    }
+    @Test
+    public void should_return_the_value_of_selected_items(){
+        restaurant.addToMenu("Alfredo Pasta", 350);
+        restaurant.addToMenu("Philadelphia Cheese cake", 210);
+        List<Item> selectedList = new ArrayList<Item>();
+        selectedList.add(new Item("Alfredo Pasta", 350));
+        selectedList.add(new Item("Sweet corn soup", 119));
+        assertEquals(469,restaurant.calculateAndReturnOrderValue(selectedList));
+    }
 }
